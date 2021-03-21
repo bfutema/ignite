@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "dev": "webpack serve",
-    "build": "cross-env NODE_ENV=production webpack"
-  },
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
@@ -17,7 +13,8 @@
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "html-webpack-plugin": "^5.3.1",
-    "webpack": "^5.24.4",
-    "webpack-cli": "^4.5.0"
+    "webpack": "^5.27.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
