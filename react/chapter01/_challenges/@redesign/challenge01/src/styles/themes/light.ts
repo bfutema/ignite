@@ -17,6 +17,9 @@ export default {
     error: '#ff004d',
     info: '#46b5d1',
 
+    white: '#fbfbfb',
+    black: '#313131',
+
     gray: {
       lighter: '#F5F6FA',
       light: '#A7ADC4',
@@ -25,8 +28,8 @@ export default {
       darker: '#50535E',
     },
 
-    background: '#',
-    text: '#',
+    background: '#fbfbfb',
+    text: '#232323',
 
     gradients: {
       primary:
