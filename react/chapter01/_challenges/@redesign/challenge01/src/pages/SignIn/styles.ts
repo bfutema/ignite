@@ -36,6 +36,8 @@ export const AnimatedContainer = styled(motion.div)`
       a {
         color: ${theme.colors.secondaryDark};
 
+        margin-left: 4px;
+
         position: relative;
 
         &::after {

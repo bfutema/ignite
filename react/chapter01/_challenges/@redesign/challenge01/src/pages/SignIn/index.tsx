@@ -38,25 +38,28 @@ const SignIn: React.FC = () => {
     setInputValue(value);
   }, []);
 
-  const handleSubmit = useCallback(async (formData: ISignInCredentials) => {
-    try {
-      unformRef.current?.setErrors({});
+  const handleSubmit = useCallback(
+    async (formData: ISignInCredentials) => {
+      try {
+        unformRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        name: Yup.string().required('Preencha seu nome para acessar o app!'),
-      });
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Preencha seu nome para acessar o app!'),
+        });
 
-      await schema.validate(formData, { abortEarly: false });
+        await schema.validate(formData, { abortEarly: false });
 
-      const { name } = formData;
+        const { name } = formData;
 
-      signIn(name);
-    } catch (err) {
-      const errors = getValidationErrors(err);
+        signIn(name);
+      } catch (err) {
+        const errors = getValidationErrors(err);
 
-      unformRef.current?.setErrors(errors);
-    }
-  }, []);
+        unformRef.current?.setErrors(errors);
+      }
+    },
+    [signIn],
+  );
 
   return (
     <AuthLayout background={animateBackground(inputValue.length)}>
@@ -70,7 +73,7 @@ const SignIn: React.FC = () => {
 
         <h2>
           Seja bem vindo ao We Notes seu aplicativo de to-dos e redesign da
-          interface do meu desafio no{' '}
+          interface do meu desafio no
           <a
             href="https://pages.rocketseat.com.br/ignite"
             target="_blank"
