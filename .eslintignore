@@ -1,0 +1,6 @@
+**/*.config.js
+**/*.d.ts
+**/node_modules
+**/build
+**/dist
+**/src/react-app-env.d.ts
