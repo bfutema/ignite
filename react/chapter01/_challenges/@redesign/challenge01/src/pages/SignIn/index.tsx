@@ -4,11 +4,13 @@ import { useTheme } from 'styled-components';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
+import { AuthLayout } from '../_layouts';
+
 import { Button, Input } from '../../components/atoms';
 
-import { getValidationErrors } from '../../utils';
+import { useAuth } from '../../hooks/Auth';
 
-import { AuthLayout } from '../_layouts';
+import { getValidationErrors } from '../../utils';
 
 import { AnimatedContainer, Unform } from './styles';
 
@@ -20,6 +22,7 @@ interface ISignInCredentials {
 
 const SignIn: React.FC = () => {
   const { colors } = useTheme();
+  const { signIn } = useAuth();
 
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -47,7 +50,7 @@ const SignIn: React.FC = () => {
 
       const { name } = formData;
 
-      console.log(name);
+      signIn(name);
     } catch (err) {
       const errors = getValidationErrors(err);
 

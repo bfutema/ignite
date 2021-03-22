@@ -1,9 +1,14 @@
 import React from 'react';
 
-import { AppThemeProvider } from './AppTheme';
+import { AppThemeProvider } from './Theme';
+import { AuthProvider } from './Auth';
 
 const AppProvider: React.FC = ({ children }) => {
-  return <AppThemeProvider>{children}</AppThemeProvider>;
+  return (
+    <AppThemeProvider>
+      <AuthProvider>{children}</AuthProvider>
+    </AppThemeProvider>
+  );
 };
 
 export default AppProvider;
