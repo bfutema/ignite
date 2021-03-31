@@ -1,27 +1,37 @@
 import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 
+import { useAuth } from '../hooks/useAuth';
+
+import { DefaultLayout } from '../pages/_layouts';
+
 interface RouteWrapperProps extends RouteProps {
   isPrivate?: boolean;
   component: React.FC<RouteProps>;
 }
 
 const RouteWrapper: React.FC<RouteWrapperProps> = ({
-  isPrivate = false,
   component: Component,
   ...rest
 }) => {
-  const signed = false;
+  const { auth } = useAuth();
 
-  if (!signed && isPrivate) {
+  if (!auth.signed) {
     return <Redirect to="/" />;
   }
 
-  if (signed && !isPrivate) {
-    return <Redirect to="/dashboard" />;
-  }
+  const Layout = DefaultLayout;
 
-  return <Route {...rest} render={props => <Component {...props} />} />;
+  return (
+    <Route
+      {...rest}
+      render={props => (
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      )}
+    />
+  );
 };
 
 export default RouteWrapper;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AppThemeProvider } from './Theme';
-import { AuthProvider } from './Auth';
+import { AppThemeProvider } from './useTheme';
+import { AuthProvider } from './useAuth';
 
 const AppProvider: React.FC = ({ children }) => {
   return (

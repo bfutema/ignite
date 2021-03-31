@@ -14,8 +14,6 @@ export const Container = styled.div<ContainerProps>`
     width: 100%;
     height: 46px;
 
-    padding: 8px 16px;
-
     color: ${theme.colors.black};
     background: ${theme.colors.white};
     border-radius: 4px;

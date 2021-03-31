@@ -4,11 +4,12 @@ import { useTheme } from 'styled-components';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
+import { useHistory } from 'react-router-dom';
 import { AuthLayout } from '../_layouts';
 
 import { Button, Input } from '../../components/atoms';
 
-import { useAuth } from '../../hooks/Auth';
+import { useAuth } from '../../hooks/useAuth';
 
 import { getValidationErrors } from '../../utils';
 
@@ -24,6 +25,8 @@ const SignIn: React.FC = () => {
   const { colors } = useTheme();
   const { signIn } = useAuth();
 
+  const history = useHistory();
+
   const [inputValue, setInputValue] = useState<string>('');
 
   const unformRef = useRef<FormHandles>(null);
@@ -31,6 +34,7 @@ const SignIn: React.FC = () => {
   const inputRange = [0, 5];
   const outputRange = [colors.white, colors.primary];
   const animateBackground = transform(inputRange, outputRange);
+  const animateColor = transform(inputRange, [colors.black, colors.primary]);
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
     const { value } = e.target;
@@ -52,13 +56,15 @@ const SignIn: React.FC = () => {
         const { name } = formData;
 
         signIn(name);
+
+        history.push('/dashboard');
       } catch (err) {
         const errors = getValidationErrors(err);
 
         unformRef.current?.setErrors(errors);
       }
     },
-    [signIn],
+    [signIn, history],
   );
 
   return (
@@ -68,6 +74,7 @@ const SignIn: React.FC = () => {
         initial="unMounted"
         animate="mounted"
         exit="unMounted"
+        color={animateColor(inputValue.length)}
       >
         <h1>We Notes</h1>
 

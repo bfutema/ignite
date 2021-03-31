@@ -2,8 +2,12 @@ import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { Form } from '@unform/web';
 
-export const AnimatedContainer = styled(motion.div)`
-  ${({ theme }) => css`
+interface AnimatedContainerProps {
+  color: string;
+}
+
+export const AnimatedContainer = styled(motion.div)<AnimatedContainerProps>`
+  ${({ theme, color }) => css`
     max-width: 35rem;
 
     padding: 3.2rem;
@@ -23,7 +27,7 @@ export const AnimatedContainer = styled(motion.div)`
     }
 
     h1 {
-      color: ${theme.colors.primary};
+      color: ${color};
     }
 
     h2 {
