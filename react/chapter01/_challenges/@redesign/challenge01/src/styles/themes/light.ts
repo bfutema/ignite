@@ -1,4 +1,5 @@
 export default {
+  title: 'light',
   colors: {
     primaryLighter: '#AD71E1',
     primaryLight: '#9D32FA',
@@ -19,6 +20,8 @@ export default {
 
     white: '#fbfbfb',
     black: '#313131',
+    blue: '#273fad',
+    red: '#ad273f',
 
     gray: {
       lighter: '#F5F6FA',
@@ -43,6 +46,7 @@ export default {
     large: '1.6rem',
     small: '1.2rem',
     tiny: '1rem',
+    veryTiny: '0.8rem',
   },
   spacing: {
     default: '1.6rem',
@@ -63,5 +67,7 @@ export default {
   shadows: {
     default: '0 0.5rem 2rem rgba(0, 0, 0, 0.5)',
     flat: '0 0.2rem 0.2rem rgba(0, 0, 0, 0.5)',
+    medium: '0 0.5rem 2rem rgba(0, 0, 0, 0.25)',
+    tiny: '0 0.5rem 2rem rgba(0, 0, 0, 0.05)',
   },
 };

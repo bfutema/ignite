@@ -6,6 +6,8 @@ export default createGlobalStyle`
     padding: 0;
     outline: none;
     box-sizing: border-box;
+
+    transition: background-color 0.6s, color 50ms;
   }
 
   @media(max-width: 1080px) {
@@ -31,7 +33,7 @@ export default createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font: 16px 'Inter', sans-serif;
+    font: 16px 'Poppins', sans-serif;
   }
 
   a {
