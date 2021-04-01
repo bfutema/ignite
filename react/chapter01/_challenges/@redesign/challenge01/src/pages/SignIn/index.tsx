@@ -22,7 +22,7 @@ interface ISignInCredentials {
 }
 
 const SignIn: React.FC = () => {
-  const { colors } = useTheme();
+  const { title, colors } = useTheme();
   const { signIn } = useAuth();
 
   const history = useHistory();
@@ -34,7 +34,10 @@ const SignIn: React.FC = () => {
   const inputRange = [0, 5];
   const outputRange = [colors.white, colors.primary];
   const animateBackground = transform(inputRange, outputRange);
-  const animateColor = transform(inputRange, [colors.black, colors.primary]);
+  const animateColor = transform(inputRange, [
+    title === 'light' ? colors.black : colors.white,
+    colors.primary,
+  ]);
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
     const { value } = e.target;

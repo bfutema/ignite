@@ -12,8 +12,8 @@ export const AnimatedContainer = styled(motion.div)<AnimatedContainerProps>`
 
     padding: 3.2rem;
 
-    color: ${theme.colors.black};
-    background: ${theme.colors.white};
+    color: ${theme.colors.text};
+    background: ${theme.colors.background};
     border-radius: ${theme.radii.default};
     box-shadow: ${theme.shadows.default};
 
