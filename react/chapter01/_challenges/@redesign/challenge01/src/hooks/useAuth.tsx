@@ -6,15 +6,13 @@ import React, {
   useState,
 } from 'react';
 
-interface IUser {
+interface IAuth {
+  signed: boolean;
   name: string;
 }
 
 interface AuthContextData {
-  auth: {
-    signed: boolean;
-    user: IUser | undefined;
-  };
+  auth: IAuth;
   signIn(_name: string): void;
   signOut(): void;
 }
@@ -22,20 +20,14 @@ interface AuthContextData {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
-  const [signed, setSigned] = useState<boolean>(() => {
-    const storedSigned = localStorage.getItem('@WeNotes:signed');
+  const [auth, setAuth] = useState<IAuth>(() => {
+    const storedSigned = localStorage.getItem('@WeNotes:auth');
 
-    if (storedSigned) return JSON.parse(storedSigned);
+    if (storedSigned) {
+      return JSON.parse(storedSigned);
+    }
 
     return false;
-  });
-
-  const [user, setUser] = useState<IUser>(() => {
-    const storedUser = localStorage.getItem('@WeNotes:user');
-
-    if (storedUser) return JSON.parse(storedUser);
-
-    return {} as IUser;
   });
 
   const signIn = useCallback((name: string) => {
@@ -44,20 +36,21 @@ const AuthProvider: React.FC = ({ children }) => {
       JSON.stringify({ name, signed: true }),
     );
 
-    setUser({ name });
-    setSigned(true);
+    setAuth(previousState => ({
+      ...previousState,
+      signed: true,
+      user: { name },
+    }));
   }, []);
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@WeNotes:auth');
 
-    setUser({} as IUser);
-    setSigned(false);
+    setAuth({} as IAuth);
   }, []);
 
-  const value = useMemo(() => ({ auth: { signed, user }, signIn, signOut }), [
-    user,
-    signed,
+  const value = useMemo(() => ({ auth, signIn, signOut }), [
+    auth,
     signIn,
     signOut,
   ]);
