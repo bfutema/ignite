@@ -3,7 +3,10 @@ import Ink from 'react-ink';
 
 import { Container } from './styles';
 
+export type ButtonVariants = 'secondary' | 'transparent';
+
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariants;
   outline?: boolean;
   color: string;
 }

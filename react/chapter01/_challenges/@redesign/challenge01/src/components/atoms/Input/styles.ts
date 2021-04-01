@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
 
 import Tooltip from '../Tooltip';
 
@@ -14,8 +15,8 @@ export const Container = styled.div<ContainerProps>`
     width: 100%;
     height: 46px;
 
-    color: ${theme.colors.black};
-    background: ${theme.colors.white};
+    color: ${theme.colors.text};
+    background: ${transparentize(0.1, theme.colors.background)};
     border-radius: 4px;
     border: 2px solid ${theme.colors.primary};
 
