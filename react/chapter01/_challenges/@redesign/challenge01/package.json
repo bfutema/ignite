@@ -11,6 +11,7 @@
   "dependencies": {
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
+    "date-fns": "^2.0.0-beta.5",
     "framer-motion": "^4.0.0",
     "polished": "^4.1.1",
     "react": "^17.0.1",
