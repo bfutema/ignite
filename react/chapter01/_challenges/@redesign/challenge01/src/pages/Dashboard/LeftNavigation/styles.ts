@@ -56,6 +56,10 @@ const navItemActive = {
         background: ${theme.colors.primary};
         border-radius: 6px;
       }
+
+      svg {
+        color: ${theme.colors.white} !important;
+      }
     `}
   `,
 };

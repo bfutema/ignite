@@ -31,16 +31,16 @@ const AuthProvider: React.FC = ({ children }) => {
   });
 
   const signIn = useCallback((name: string) => {
+    setAuth(previousState => ({
+      ...previousState,
+      signed: true,
+      name,
+    }));
+
     localStorage.setItem(
       '@WeNotes:auth',
       JSON.stringify({ name, signed: true }),
     );
-
-    setAuth(previousState => ({
-      ...previousState,
-      signed: true,
-      user: { name },
-    }));
   }, []);
 
   const signOut = useCallback(() => {
