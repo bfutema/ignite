@@ -1,0 +1,60 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.posts {
+  max-width: 720px;
+  margin: 5rem auto 0;
+
+  a {
+    display: block;
+
+    & + a {
+      margin-top: 2rem;
+      padding-top: 2rem;
+    }
+
+    strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      line-height: 2rem;
+      color: var(--heading);
+
+      transition: color 0.2s;
+    }
+
+    p {
+      color: var(--body);
+      margin-top: 0.5rem;
+      line-height: 1.625rem;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      margin-top: 0.5rem;
+    }
+
+    &:hover strong {
+      color: var(--highlight);
+    }
+  }
+
+  button.loadMorePosts {
+    color: var(--highlight);
+    background: transparent;
+    border: 0;
+
+    margin-top: 2.5rem;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}

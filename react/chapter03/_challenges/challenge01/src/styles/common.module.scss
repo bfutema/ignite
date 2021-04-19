@@ -1,0 +1,18 @@
+.info {
+  margin-bottom: 1rem;
+
+  div + div {
+    margin-left: 1.5rem;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+
+    margin-right: 0.5rem;
+  }
+
+  span, time, svg {
+    color: var(--info);
+  }
+}
