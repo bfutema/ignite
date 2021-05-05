@@ -20,9 +20,9 @@ export function Header() {
       maxW={1480}
       h="20"
       mx="auto"
-      mt="4"
       px="6"
       align="center"
+      borderBottom="red"
     >
       {!isWideVersion && (
         <IconButton
